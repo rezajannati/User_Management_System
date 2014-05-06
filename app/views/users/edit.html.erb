@@ -1,0 +1,39 @@
+<div class='container'>
+	<h1>Edit User Info</h1>
+	
+<%= form_for(:user, :url => { action: "update"}) do |f|%>
+	<input type="hidden" name='_method' value='patch'>
+	
+	<table class ='table'>
+		<tbody>
+			<tr>
+				<td><%= f.label :first_name%></td>
+				<td><%= f.text_field :first_name, :value => @user_info[:first_name] %></td>
+			</tr>
+			<tr>
+				<td><%= f.label :last_name %></td>
+				<td><%= f.text_field :last_name, :value => @user_info[:last_name]  %></td>
+			</tr>
+			<tr>
+				<td><%= f.label :email %></td>
+				<td><%= f.text_field :email, :value => @user_info[:email]  %></td>
+			</tr>
+			<tr>
+				<td><%= f.label :password %></td>
+				<td><%= f.password_field :password, :value => @user_info[:password] %></td>
+			</tr>
+			<tr>
+				<td><%= f.label :confirm_password %></td>
+				<td><%= f.password_field :password_confirmation, :value => @user_info[:password] %></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><%= f.submit ('Update'), :class => 'btn btn-warning'%></td>
+			</tr>
+		</tbody>
+	</table>
+<% end %>
+
+	<a class="btn btn-primary btn-block" href="/">Go Back</a>
+
+</div>

@@ -1,0 +1,25 @@
+<div class='container'>
+	<h1>Show User</h1>
+	<table class = 'table table-striped'>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%=@show_user.id%></td>
+				<td><%=@show_user.first_name%></td>
+				<td><%=@show_user.last_name%></td>
+				<td><%=@show_user.email%></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a class="btn btn-warning btn-block" href="/users/<%=@show_user.id %>/edit">Edit</a>
+	<a class="btn btn-primary btn-block" href="/">Go Back</a>
+
+</div>

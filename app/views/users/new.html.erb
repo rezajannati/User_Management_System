@@ -1,0 +1,46 @@
+<div class='container'>
+<h1>Create New User</h1>
+	<% if @user.errors.any? %>
+		<div class = 'tred'>
+			<h2><%= pluralize(@user.errors.count,"error") %> : New user could not be saved: </h2> 
+			<ul>
+				<% @user.errors.full_messages.each do |e|%>
+				<li><%= e %> </li>
+				<%end%>
+			</ul>
+		</div>
+	<% end %>
+
+	<%= form_for(:user, :url => { :controller=>"users", :action =>"create" }) do |f|%>
+		<table class ='table'>
+			<tbody>
+				<tr>
+					<td><%= f.label :first_name %></td>
+					<td><%= f.text_field :first_name %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :last_name %></td>
+					<td><%= f.text_field :last_name %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :email %></td>
+					<td><%= f.text_field :email %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :password %></td>
+					<td><%= f.password_field :password %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :confirm_password %></td>
+					<td><%= f.password_field :password_confirmation %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><%= f.submit ('Create User'), :class =>"btn btn-warning"%></td>
+				</tr>
+			</tbody>
+		</table>
+	<% end %>
+	<a class="btn btn-primary btn-block" href="/">Go Back</a>
+	
+</div>

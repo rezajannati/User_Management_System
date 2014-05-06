@@ -1,0 +1,37 @@
+<div class='container'>
+	<h1>Users</h1>
+	<div class = "row">
+		<div class="col-sm-8">
+			<div class = 'tgreen'>
+				<%= flash[:notice] if !flash[:notice].blank? %><br>
+			</div>
+		</div>
+		<div class="col-sm-4">
+		</div>
+	</div>
+	<table class ='table table-striped'>
+		<thead>
+			<tr>
+				<th>First name</th>
+				<th>Last name</th>
+				<th>Email</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @show_users.each do |i| %>
+				<tr>
+					<td><%= i.first_name %></td>
+					<td><%= i.last_name %></td>
+					<td><%= i.email %></td>
+					<td>
+						<a class = 'btn btn-xs btn-info'    href="/users/<%= i.id %>">Show</a>
+						<a class = 'btn btn-xs btn-warning' href="/users/<%= i.id %>/edit">Edit</a>
+						<a class = 'btn btn-xs btn-danger'  href="/users/<%= i.id %>/destroy">Delete</a>
+					</td>
+				</tr>
+			<% end%>
+		</tbody>
+	</table>
+		<a class = 'btn btn-primary btn-lg btn-block' href="users/new">Add User</a>
+</div>
